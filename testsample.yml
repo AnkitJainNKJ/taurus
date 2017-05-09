@@ -1,4 +1,4 @@
-/
+---
 reporting:
  - module: final-stats
    summary: true  # overall samples count and percent of failures
