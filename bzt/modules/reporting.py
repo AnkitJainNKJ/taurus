@@ -449,7 +449,7 @@ class CustomStatus(Reporter, AggregatorListener, FunctionalAggregatorListener):
     """
 
     def __init__(self):
-        print("customReport")
+        self.log.info("customReport")
         #super(FinalStatus, self).__init__()
         super(CustomStatus, self).__init__()
         self.last_sec = None
@@ -458,11 +458,11 @@ class CustomStatus(Reporter, AggregatorListener, FunctionalAggregatorListener):
         self.end_time = None
 
     def startup(self):
-        print("customReport")
+        self.log.info("customReport")
         self.start_time = time.time()
 
     def prepare(self):
-        print("customReport")
+        self.log.info("customReport")
         super(FinalStatus, self).prepare()
         if isinstance(self.engine.aggregator, ResultsProvider):
             self.engine.aggregator.add_listener(self)
@@ -470,7 +470,7 @@ class CustomStatus(Reporter, AggregatorListener, FunctionalAggregatorListener):
             self.engine.aggregator.add_listener(self)
 
     def aggregated_second(self, data):
-        print("customReport")
+        self.log.info("customReport")
         """
         Just store the latest info
 
@@ -479,7 +479,7 @@ class CustomStatus(Reporter, AggregatorListener, FunctionalAggregatorListener):
         self.last_sec = data
 
     def aggregated_results(self, results, cumulative_results):
-        print("customReport")
+        self.log.info("customReport")
         """
         Just store the latest info
 
@@ -489,7 +489,7 @@ class CustomStatus(Reporter, AggregatorListener, FunctionalAggregatorListener):
         self.cumulative_results = cumulative_results
 
     def post_process(self):
-        print("customReport")
+        self.log.info("customReport")
         """
         Log basic stats
         """

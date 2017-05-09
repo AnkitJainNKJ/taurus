@@ -1,19 +1,19 @@
 /
-rting:
-- module: final-stats
-  summary: true  # overall samples count and percent of failures
-  percentiles: true  # display average times and percentiles
-  failed-labels: false  # provides list of sample labels with failures
-  test-duration: true  # provides test duration
-  dump-xml: reportsdumpxml
-  dump-csv: reportscsv
-- module: blazemeter
-  test: Smoke Test
+reporting:
+ - module: final-stats
+   summary: true  # overall samples count and percent of failures
+   percentiles: true  # display average times and percentiles
+   failed-labels: false  # provides list of sample labels with failures
+   test-duration: true  # provides test duration
+   dump-xml: reportsdumpxml
+   dump-csv: reportscsv
+ - module: blazemeter
+   test: Smoke Test
 execution:
- concurrency: 10
- hold-for: 1m00s
- ramp-up: 1m
- scenario:
+  concurrency: 10
+  hold-for: 1m00s
+  ramp-up: 1m
+  scenario:
   requests:
    - url: http://gettaurus.org/docs/Installation/
      method: get
